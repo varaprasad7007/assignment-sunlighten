@@ -14,6 +14,17 @@ app.get('/', function(req, res) {
 app.get('/currentTime', (req, res) => {
   res.json({ timeData: timeData })
 })
+
+// this route will get json which get input string number to actual number
+app.get('/exp', function(req, res) {
+  var value = (3 + 2) * 5
+  if (typeof value == 'string') {
+    return res.json({ value: eval(value) })
+  } else {
+    return res.json({ value: value })
+  }
+})
+
 app.listen(4000, () => {
   console.log('port running successfully')
 })
